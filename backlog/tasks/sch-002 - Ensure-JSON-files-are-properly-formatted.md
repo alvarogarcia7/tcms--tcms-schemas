@@ -1,11 +1,13 @@
 ---
 id: SCH-002
 title: Ensure JSON files are properly formatted
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-02-25 07:07'
+updated_date: '2026-02-25 07:21'
 labels: []
 dependencies: []
+ordinal: 2000
 ---
 
 ## Description
@@ -20,6 +22,6 @@ Invoke said script in the gitlab pipeline
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
-- [ ] #1 All JSON Schemas are valid
-- [ ] #2 The pipeline is passing
+- [x] #1 All JSON Schemas are valid
+- [x] #2 The pipeline is passing
 <!-- DOD:END -->
