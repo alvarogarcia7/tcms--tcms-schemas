@@ -40,7 +40,7 @@ done
 
 for f in samples/test-plan/*.yml; do
     if [ -f "$f" ]; then
-        uv run python validator.py "$f" schemas/test-plan/test-plan.schema.json
+        uv run python validator.py "$f" schemas/tcms/test-plan.schema.json
     fi
 done
 echo "✓ All samples are valid"
