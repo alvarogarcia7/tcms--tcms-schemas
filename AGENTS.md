@@ -16,7 +16,7 @@ uv pip install -r requirements.txt
 python validator.py samples/test-case/gsma_4.4.2.2_TC.yml
 
 # Validate with explicit schema path
-python validator.py samples/test-plan/data.yml schemas/test-plan/test-plan.schema.json
+python validator.py samples/test-plan/data.yml schemas/tcms/test-plan.schema.json
 ```
 
 ## Project Structure
@@ -26,8 +26,11 @@ tcms-schemas/
 ├── validator.py              # Main validation script
 ├── requirements.txt          # Python dependencies
 ├── schemas/                  # Schema definitions
-│   ├── test-case/test-case.schema.json
-│   └── test-plan/test-plan.schema.json
+│   └── tcms/
+│       ├── test-case-main.schema.json
+│       ├── test-plan.schema.json
+│       ├── execution-log.schema.json
+│       └── verification-result.schema.json
 └── samples/                  # Sample YAML files
     ├── test-case/
     │   ├── gsma_4.4.2.2_TC.yml
