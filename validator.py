@@ -112,17 +112,25 @@ class YamlSchemaValidator:
             return False
 
 
+SCHEMA_MAP = {
+    "test-case": "schemas/tcms/test-case-main.schema.json",
+    "test-plan": "schemas/tcms/test-plan.schema.json",
+}
+
+
 def infer_schema_path(yaml_file: Path) -> Path:
     """
     Infer the schema file path based on the YAML file location.
 
-    Example: samples/test-case/gsma_4.4.2.2_TC.yml -> schemas/test-case/test-case.schema.json
+    Example: samples/test-case/gsma_4.4.2.2_TC.yml -> schemas/tcms/test-case-main.schema.json
     """
     parts = yaml_file.parts
     if 'samples' in parts:
         idx = parts.index('samples')
         category = parts[idx + 1]
-        return Path(f"schemas/{category}/{category}.schema.json")
+        schema = SCHEMA_MAP.get(category)
+        if schema:
+            return Path(schema)
     return None
 
 
