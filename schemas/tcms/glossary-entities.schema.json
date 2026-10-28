@@ -1,0 +1,187 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Test Case Verification Glossary Entities",
+  "description": "Schema for verification glossary entities used in test cases",
+  "type": "object",
+  "properties": {
+    "verification": {
+      "type": "object",
+      "description": "Verification glossary entity - defines verification approach and requirements",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the verification approach"
+        },
+        "method": {
+          "type": "string",
+          "enum": ["automated", "manual", "mixed"],
+          "description": "Verification method type"
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Verification requirements"
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "description": "Validation glossary entity - defines validation criteria and checks",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the validation approach"
+        },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Validation criteria that must be met"
+        },
+        "scope": {
+          "type": "string",
+          "description": "Scope of validation (e.g., 'unit', 'integration', 'system')"
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "description": "Review glossary entity - defines review checkpoints and stakeholders",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the review process"
+        },
+        "checkpoints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Review checkpoints"
+        },
+        "required_approvers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Required approvers for review"
+        }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "description": "Analysis glossary entity - defines analysis objectives and methodology",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the analysis approach"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["static", "dynamic", "hybrid"],
+          "description": "Type of analysis performed"
+        },
+        "objectives": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Analysis objectives"
+        }
+      }
+    },
+    "test_type": {
+      "type": "object",
+      "description": "Test type glossary entity - categorizes test case by type (procedure, result, or case)",
+      "properties": {
+        "category": {
+          "type": "string",
+          "enum": ["test_case", "test_procedure", "test_result"],
+          "description": "Test classification category"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the test type"
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "description": "Coverage glossary entity - defines coverage metrics and types",
+      "properties": {
+        "requirements_based": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Requirements-based coverage items"
+        },
+        "structural": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Structural coverage items (code paths, branches, statements)"
+        },
+        "coverage_percentage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Expected coverage percentage"
+        }
+      }
+    },
+    "independence": {
+      "type": "object",
+      "description": "Independence glossary entity - defines test independence characteristics",
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["dependent", "semi_independent", "independent"],
+          "description": "Level of test independence from other tests"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of independence characteristics"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Test IDs or sequences this test depends on"
+        }
+      }
+    },
+    "regression": {
+      "type": "object",
+      "description": "Regression glossary entity - defines regression testing characteristics",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether this test should be included in regression testing"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of regression testing approach"
+        },
+        "affected_areas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Areas of the system affected by this test"
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["high", "medium", "low"],
+          "description": "Priority for regression testing"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
